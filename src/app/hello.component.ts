@@ -24,13 +24,13 @@ export class HelloComponent {
   organizationMap: Map<number, string>;
 
   reveres(nums, k) {
-    let last = nums[nums.length-1];
+    let last = 0;
     console.log(nums);
     for (var i = 0; i < k; i++) {
-      last = nums[0];
+      last = nums[nums.length-1];
       for (let n = 1; n < nums.length; n++) {
-        if ( nums.length - n > 0) {
-          nums[nums.length - 1] = nums[nums.length - 1 - n];
+        if ( nums.length - n >= 0) {
+          nums[nums.length - n] = nums[nums.length - n - 1];
         }
       }
       nums[0] = last;
