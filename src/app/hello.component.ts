@@ -6,6 +6,9 @@ import { Component, Input } from "@angular/core";
     <h1>Hello {{ name }}!</h1>
     <button (click)="map()">Map</button>
     <button (click)="set()">Set</button>
+
+    <button (click)="reveres([1, 2, 3, 4, 5, 6, 7], 3)">[5,6,7,1,2,3,4]</button>
+    <button (click)="reveres([-1, -100, 3, 99], 2)">[3,99,-1,-100]</button>
   `,
   styles: [
     `
@@ -19,6 +22,19 @@ export class HelloComponent {
   @Input() name: string;
   organizationSet: Set<string>;
   organizationMap: Map<number, string>;
+
+  reveres(nums, k) {
+    let start = nums[0];
+    console.log(nums);
+    for (var i = 0; i < k; i++) {
+      start = nums[0];
+      for (let n = 0; n < nums.length; n++) {
+        nums[n + 1] = nums[n];
+      }
+      nums[nums.length - 1] = start;
+    }
+    console.log(nums);
+  }
 
   constructor() {
     this.organizationSet = new Set<string>();
